@@ -1,4 +1,4 @@
-package Foo {
+{package Foo;
     use Moo;
 
     with "Object::GMP";
