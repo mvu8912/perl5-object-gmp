@@ -1,2 +1,1 @@
-requires 'Template';
-requires 'INI::ReadPath';
+requires 'Test::More';

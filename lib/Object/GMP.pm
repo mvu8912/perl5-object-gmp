@@ -33,9 +33,9 @@ and prime will be a GMP value.
 
 =head1 LINKS
 
-B<Git Repo>: L<[% link.git %]>
+B<Git Repo>: L<https://github.com/mvu8912/perl5-object-gmp.git>
 
-B<CPAN Module>: L<[% link.cpan %]>
+B<CPAN Module>: L<https://metacpan.org/pod/Object::GMP>
 
 =cut
 

@@ -31,6 +31,6 @@ and prime will be a GMP value.
 
 # LINKS
 
-**Git Repo**: ["\[% link.git %\]"](#link-git)
+**Git Repo**: [https://github.com/mvu8912/perl5-object-gmp.git](https://github.com/mvu8912/perl5-object-gmp.git)
 
-**CPAN Module**: ["\[% link.cpan %\]"](#link-cpan)
+**CPAN Module**: [https://metacpan.org/pod/Object::GMP](https://metacpan.org/pod/Object::GMP)

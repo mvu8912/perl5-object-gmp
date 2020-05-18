@@ -12,3 +12,6 @@ dist.ini
 cpanfile.*
 Dockerfile
 docker-compose.yml
+dist/
+MEAT.yml
+README.md
