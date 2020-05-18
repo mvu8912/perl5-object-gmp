@@ -13,7 +13,8 @@ services:
             - ./:/app/src
         env_file:
             - ./cpanfile.env
-        command: echo
+        working_dir: /app/src
+        command: carton exec dzil authordeps --missing
     rnd:
         image: michaelpc/perl-base:latest
         volumes:
