@@ -28,3 +28,9 @@ The above exmaple to declare the field 'prime' is a GMP value.
 
 So when you create an object, a and b will be normal value
 and prime will be a GMP value.
+
+# LINKS
+
+**Git Repo**: ["\[% link.git %\]"](#link-git)
+
+**CPAN Module**: ["\[% link.cpan %\]"](#link-cpan)

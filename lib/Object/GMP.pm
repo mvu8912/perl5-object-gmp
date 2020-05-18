@@ -31,6 +31,12 @@ The above exmaple to declare the field 'prime' is a GMP value.
 So when you create an object, a and b will be normal value
 and prime will be a GMP value.
 
+=head1 LINKS
+
+B<Git Repo>: L<[% link.git %]>
+
+B<CPAN Module>: L<[% link.cpan %]>
+
 =cut
 
 use Moo::Role;

@@ -1,0 +1,70 @@
+#!/usr/bin/env perl
+
+use strict;
+use warnings;
+use INI::ReadPath;
+
+my ($pkgname) = @ARGV
+  or exit;
+
+my $pmfile = $pkgname;
+$pmfile =~ s{::}{/}g;
+$pmfile = sprintf 'lib/%s.pm', $pmfile;
+
+exit if !-f $pmfile;
+
+my $module_name = $pkgname;
+$module_name =~s/::/-/g;
+
+my $version = do {
+    my $distini = INI::ReadPath->new( file => 'dist.ini' );
+    $distini->config->{ini}{version};
+};
+
+my $module_dir = "$module_name-$version";
+my $module_tgz = "$module_dir.tar.gz";
+
+my $module_dir_pmfile = "$module_dir/$pmfile";
+
+exit if !-f $module_dir_pmfile;
+
+my %link = (
+    cpan => "https://metacpan.org/pod/$pkgname",
+);
+
+{
+    my $gitconfig = INI::ReadPath->new( file => '.git/config' );
+    $link{git} = $gitconfig->config->{'remote "origin"'}{url};
+    $link{git} =~ s{\:}{/};
+    $link{git} =~ s{^git\@}{https://};
+}
+
+if (open my $fh, '>', $module_dir_pmfile){
+    my $module_content = do {
+        open my $fh, '<', $pmfile;
+        local $/;
+        <$fh>;
+    };
+
+    my $tt = Template->new;
+
+    $tt->process(\$module_content, {link => \%link}, \my $updated);
+    
+    if (my $e = $tt->error) {
+        die $e;
+    }
+
+    $fh->printflush($updated);
+}
+
+system qq{
+    rm -v $module_tgz;
+    tar vzcf $module_tgz $module_dir;
+    cd $module_dir;
+    cp -v README.mkdn ../README.md;
+    cp -v META.yml ../;
+};
+
+print "OK";
+
+exit;
