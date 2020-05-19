@@ -1,3 +1,4 @@
+requires 'Moo::Role';
 requires 'JSON::XS';
 requires 'Math::BigInt';
 requires 'Math::BigInt::GMP';
