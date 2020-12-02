@@ -40,8 +40,8 @@ B<CPAN Module>: L<https://metacpan.org/pod/Object::GMP>
 =cut
 
 use Moo::Role;
-use JSON::XS;
 use Math::BigInt lib => 'GMP';
+require JSON::XS;
 
 my %GMP_FIELDS = ();
 
